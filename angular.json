@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "paulaShop"
+    }
+  },
+  "defaultProject": "paulaShop",
+  "cli": {
+    "analytics": "bed1cc76-3853-4634-be14-addb4a93ce75"
+  }
 }
