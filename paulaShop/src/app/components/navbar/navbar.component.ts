@@ -12,6 +12,10 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  buscar(product:string){
+    console.log("palabra",product)
+  }
 
   
 

@@ -1,7 +1,14 @@
-<nav class="navbar navbar-light bg-light justify-content-between">
-    <a class="navbar-brand">Navbar</a>
-    <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+<nav class="navbar navbar-light  justify-content-between" style="background: #fcf45c;">
+    <a class="navbar-brand" style="justify-content: center; margin-left: 20%;">
+        <h4><strong> Mercado Paula</strong></h4>
+    </a>
+    <div class="row" style="align-content:center; margin-right:20%;">
+        <div class="col-8 ">
+            <input class="form-control size" type="search" keyup.enter="buscar(product.value)" placeholder="Buscar producto " aria-label="Search" #product>
+        </div>
+        <div class="col-4" style="height: 50%;">
+            <button class="btn btn-primary" (click)="buscar(product.value)"><i style="color: black;">Buscar</i> </button>
+        </div>
+    </div>
+
 </nav>
