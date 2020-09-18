@@ -4,11 +4,10 @@
     </a>
     <div class="row" style="align-content:center; margin-right:20%;">
         <div class="col-8 ">
-            <input class="form-control size" type="search" keyup.enter="buscar(product.value)" placeholder="Buscar producto " aria-label="Search" #product>
+            <input class="form-control size" type="search" (keyup.enter)="buscar(product.value)" placeholder="Buscar producto " aria-label="Search" #product>
         </div>
         <div class="col-4" style="height: 50%;">
-            <button class="btn btn-primary" (click)="buscar(product.value)"><i style="color: black;">Buscar</i> </button>
+            <button class="btn btn-primary" (click)="buscar(product.value)">Buscar</button>
         </div>
     </div>
-
 </nav>

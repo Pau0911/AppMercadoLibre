@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ServicesService } from '../../services/services.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -8,15 +7,18 @@ import { ServicesService } from '../../services/services.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  @Output()
+  product = new EventEmitter<string>(); 
+  constructor() {
+    
+   }
 
   ngOnInit(): void {
   }
   
   buscar(product:string){
-    console.log("palabra",product)
+    this.product.emit(product)
   }
-
   
 
 }
