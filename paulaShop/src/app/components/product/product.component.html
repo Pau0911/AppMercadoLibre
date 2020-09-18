@@ -1,1 +1,11 @@
-<p>product works!</p>
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="card " style="width: 18rem;">
+        <img [src]="product['pictures'][0]['url']" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">{{product.title}}</h5>
+            <h6><strong>Vendedor: </strong>{{nameSeller}}</h6>
+            <h6><strong>Precio: </strong>$ {{product.price}}</h6>
+        </div>
+    </div>
+</div>

@@ -39,7 +39,7 @@ console.log("d")
 getProduct(offset:number){
   this.service.getProduct(this.product,offset).subscribe(data => {
     this.results = data['results']
-    console.log("d",this.results)
+    //console.log("d",this.results)
 
     this.totalItemsPagination = data['paging']['total']
       if (this.totalItemsPagination > 1000) {
@@ -87,7 +87,5 @@ clearData(){
 
 getIdProduct(id:any){
   this.router.navigate(['search',id])
-
-}
-
+  }
 }
