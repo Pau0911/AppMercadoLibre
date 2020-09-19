@@ -13,22 +13,19 @@ export class SearchComponent implements OnInit {
   results: Product[]
   paginate: boolean = false
   product:string=""
-  data: boolean = true
-  loading: boolean = false
+  alert: boolean = true
   initial: boolean = true
   sellers: any[]
   totalItemsPagination: number = 0
   id:any
 
   constructor(private service: ServicesService, private router:Router) { 
-
   }
-
   ngOnInit() {
   }
 
 search(event: any){
-  this.clearData()
+this.clearData()
 console.log("Buscando la palabra:",event)
 this.product=event
 this.getProduct(50)
@@ -40,27 +37,22 @@ getProduct(offset:number){
   this.service.getProduct(this.product,offset).subscribe(data => {
     this.results = data['results']
     //console.log("d",this.results)
-
     this.totalItemsPagination = data['paging']['total']
       if (this.totalItemsPagination > 1000) {
-        this.totalItemsPagination = 1000
-        
+        this.totalItemsPagination = 1000     
       }
       
-      this.loading = false  
       if (this.results.length === 0) {
-        this.data = false
+        this.alert = false
         this.paginate = false
       }
       this.paginate = true
       this.getSellers()
-     
     
   });
 }
 pageChanged(event:any){
   this.p = event
-  // console.log(event);
   this.getProduct((event - 1) * 50)
   window.scroll(0, 0);
 }
@@ -78,8 +70,7 @@ getSellers(){
 clearData(){
   this.initial = false
   this.paginate = false
-  this.data = true;
-  this.loading = true
+  this.alert = true;
   this.results = []
   this.sellers = []
 

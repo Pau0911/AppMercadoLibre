@@ -1,27 +1,28 @@
 <app-navbar (product)=search($event)></app-navbar>
-<div class="container">
+<!-- <div class="container col-md-10 ">
     <h5 class="results" *ngIf="paginate"><strong> Resultados para "<i>{{product}}</i></strong>"</h5>
-    <div class="card" *ngFor="let item of results | paginate: { itemsPerPage: 50, currentPage: p, totalItems: totalItemsPagination }; let i=index;" style="width: 18rem;">
-        <img src="{{item.thumbnail}}" class="shadow p-3 card-img-top size-img">
-        <div class="card-body">
-            <h5 class="card-title">{{item.title}}</h5>
-            <h6><strong>Vendedor: </strong>{{sellers[i]?.nickname}}</h6>
-            <h6><strong>Precio: </strong>$ {{item.price}}</h6>
-            <button (click)="getIdProduct(item.id)" class="btn btn-primary ">Ver producto</button>
+    <div class="card card-height" *ngFor="let item of results | paginate: { itemsPerPage: 50, currentPage: p, totalItems: totalItemsPagination }; let i=index;" style="width: 18rem;">
+        <div class="row no-gutters">
+            <div class="row" style="vertical-align: middle;">
+                <img src="{{item.thumbnail}}" class="shadow p-3 card-img-top size-img">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.title}}</h5>
+                    <h6><strong>Vendedor: </strong>{{sellers[i]?.nickname}}</h6>
+                    <h6><strong>Precio: </strong>$ {{item.price}}</h6>
+                    <button (click)="getIdProduct(item.id)" class="btn btn-primary ">Ver producto</button>
+                </div>
+            </div>
         </div>
     </div>
 
-
-</div>
-
-<!-- <div class="col-md-10 searchContent">
-    <h5 class="results" *ngIf="paginate"><strong> Resultados para "<i>{{product}}</i></strong>"</h5>
+</div> -->
+<div class="col-md-10  mt-4 mb-4">
+    <h5 class="results" *ngIf="paginate"><strong> Resultados para: "<i>{{product}}</i></strong>"</h5>
     <div class="card-columns">
-        <div class="card shadow card-height" *ngFor="let item of results | paginate: { itemsPerPage: 50, currentPage: p, totalItems: totalItemsPagination }; let i=index;">
+        <div class="card center " style="width: 18rem;" *ngFor="let item of results | paginate: { itemsPerPage: 50, currentPage: p, totalItems: totalItemsPagination }; let i=index;">
             <div class="row no-gutters">
                 <div class="row" style="vertical-align: middle;">
                     <div class="col-md-4 mr-2" style="margin: 1em;">
-                        {{item.id}}
                         <img src="{{item.thumbnail}}" class="shadow p-3 card-img-top size-img">
                     </div>
                     <div class="col-md-6 title">
@@ -31,16 +32,25 @@
                 <div class="card-body">
                     <h6><strong>Vendedor: </strong>{{sellers[i]?.nickname}}</h6>
                     <h6><strong>Precio: </strong>$ {{item.price}}</h6>
-
+                    <button (click)="getIdProduct(item.id)" class="btn btn-primary ">Ver producto</button>
                 </div>
             </div>
-            <div class="web-bottom">
-                <a href="{{item?.permalink}}" target="_blank" class="btn btn-primary ">Ver producto</a>
-            </div>
+
         </div>
     </div>
 </div>
-<div class="col-md-12 loading" *ngIf="loading">
+<div class="center mt-4" *ngIf="initial">
+    <div class="alert alert-primary" style="text-align: center;" role="alert">
+        <h5><strong>¡Buscar tu Producto!</strong></h5>
+        Ingresa el producto que deseas consultar.
+    </div>
+</div>
+<div class="alert alert-warning" style="text-align: center;" *ngIf="!alert">
+    <h5><strong>¡Sin Productos!</strong></h5>
+    No se encuentra reultados
+</div>
+
+<!-- <div class="col-md-12 loading" *ngIf="loading">
     <i class="fa fa-spinner fa-5x fa-spin "></i>
 </div>
 <div class="col-md-10 alertProducts" *ngIf="!data">
