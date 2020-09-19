@@ -1,11 +1,14 @@
 <app-navbar></app-navbar>
 <div class="container-fluid">
+    <h1 style="text-align: center;margin-top: 4px; font-family: Roboto"><strong>Detalles del producto</strong>
+    </h1>
     <div class="card mt-4" style="width: 18rem; ">
         <img [src]="product['pictures'][0]['url']" class="card-img-top">
         <div class="card-body">
             <h5 class="card-title">{{product.title}}</h5>
             <h6><strong>Vendedor: </strong>{{nameSeller}}</h6>
-            <h6><strong>Precio: </strong>$ {{product.price}}</h6>
+            <h6 *ngIf="isnull"><strong>Precio base:</strong>$ {{product.original_price}}</h6>
+            <h6><strong>Precio:</strong>${{product.price}}</h6>
         </div>
     </div>
 </div>

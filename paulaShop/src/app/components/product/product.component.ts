@@ -14,7 +14,7 @@ export class ProductComponent implements OnInit {
   id:any;
   nameSeller:string
   product: Product;
-
+  isnull:Boolean=true
 
   constructor(private route:ActivatedRoute,private service:ServicesService) { }
 
@@ -28,6 +28,9 @@ export class ProductComponent implements OnInit {
   getProductId(){
     this.service.getIdProduct(this.id).subscribe(data=>{
       this.product=data;
+      if(this.product['original_price']==null){
+        this.isnull=false
+      }
       //this.urlimg=data['pictures'[0]['url']]
       console.log("objeto",)
       this.getSeller()

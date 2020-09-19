@@ -19,9 +19,9 @@
 <div class="col-md-10  mt-4 mb-4">
     <h5 class="results" *ngIf="paginate"><strong> Resultados para: "<i>{{product}}</i></strong>"</h5>
     <div class="card-columns">
-        <div class="card center " style="width: 18rem;" *ngFor="let item of results | paginate: { itemsPerPage: 50, currentPage: p, totalItems: totalItemsPagination }; let i=index;">
+        <div class="card center" style="width: 18rem; margin: 10px;" *ngFor="let item of results | paginate: { itemsPerPage: 50, currentPage: p, totalItems: totalItemsPagination }; let i=index;">
             <div class="row no-gutters">
-                <div class="row" style="vertical-align: middle;">
+                <div class="row" style="vertical-align:middle;">
                     <div class="col-md-4 mr-2" style="margin: 1em;">
                         <img src="{{item.thumbnail}}" class="shadow p-3 card-img-top size-img">
                     </div>
@@ -50,19 +50,5 @@
     No se encuentra reultados
 </div>
 
-<!-- <div class="col-md-12 loading" *ngIf="loading">
-    <i class="fa fa-spinner fa-5x fa-spin "></i>
-</div>
-<div class="col-md-10 alertProducts" *ngIf="!data">
-    <div class="alert alert-primary" role="alert">
-        <h5><strong>¡Sin Productos!</strong></h5>
-        Actualmente no se encuentran productos relacionados a la palabra Ingresada.
-    </div>
-</div>
-<div class="col-md-10 alertProducts" *ngIf="initial">
-    <div class="alert alert-primary" role="alert">
-        <h5><strong>¡Ingresa un Producto!</strong></h5>
-        Ingresa el producto que deseas consultar.
-    </div>
-</div> -->
+
 <app-pagination (page)="pageChanged($event)" *ngIf="paginate"></app-pagination>

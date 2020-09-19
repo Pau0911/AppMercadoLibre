@@ -6,5 +6,6 @@ export class Product {
     seller: Seller;
     price: number;
     thumbnail: string;
-    permalink: string
+    permalink: string;
+    original_price:string
 }
