@@ -9,8 +9,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "heroku-postbuild": "ng build --prod"
-
-  
   },
   "private": true,
   "dependencies": {
@@ -24,6 +22,7 @@
     "@angular/router": "~9.1.9",
     "express": "^4.17.1",
     "ngx-pagination": "^5.0.0",
+    "path": "^0.12.7",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
